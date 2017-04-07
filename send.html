@@ -1,0 +1,18 @@
+<html>
+<script>
+  xhr = new XMLHttpRequest();
+  var url = "https://app-scoring.herokuapp.com/locations/create";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-type", "application/json");
+  xhr.onreadystatechange = function () { 
+      if (xhr.readyState == 4 && xhr.status == 200) {
+          var json = JSON.parse(xhr.responseText);
+          console.log(json.email + ", " + json.password)
+      }
+  }
+  var data = JSON.stringify({"id":4,"address":"13 Euston Rd, Kings Cross, London NW1, UK","latitude":51.5303972,"longitude":-0.1238579,"zone":null,"created_at":"2017-04-07T04:27:09.889Z","updated_at":"2017-04-07T04:27:09.889Z"});
+  xhr.send(data);
+
+</script>
+</html>
+
